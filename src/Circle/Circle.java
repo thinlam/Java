@@ -1,17 +1,27 @@
 package Circle;
 
 public class Circle {
-    double radius ;
-   public Circle(){
+    private double radius ;
+    public Circle(){
         radius= 1.0 ;
     }
     public Circle(double r){
-        radius = r> 0 ? r : 1.0 ;
+        //radius = r> 0 ? r : 1.0 ;
+        setRadius(r);
     }
-    double findArea(){
-        return Math.PI * radius * radius;
+    Circle(Circle c){
+        radius = c.radius;
     }
-    double findPerimeter(){
+    public double getRadius() {
+        return radius;
+    }
+    public void setRadius(double r){
+        radius = r > 0 ? r : 1.0 ;
+    }
+    public double findArea(){
+        return radius * radius * Math.PI ;
+    }
+    public double findPerimeter(){
         return 2 * Math.PI * radius;
     }
 }
